@@ -3,6 +3,9 @@ package de.dbaelz.devfest.demo.data
 object UserService {
     private var users = mutableListOf<User>()
 
+    val hasUser: Boolean
+        get() = users.isNotEmpty()
+
     init {
         addUser(User(points = 100, username = "dbaelz"))
     }
