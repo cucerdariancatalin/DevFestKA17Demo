@@ -15,5 +15,9 @@ class MainActivity : AppCompatActivity() {
         val dbaelz: Username = "dbaelz"
         val user = UserService.getUser(username = dbaelz)
         Log.d("DevFest", "User ${user.username} has ${user.points} points")
+
+        val (username, _, _, latlong) = UserService.getUser(username = dbaelz)
+        val (lat, long) = latlong
+        Log.d("DevFest", "User $username location is lat $lat and long $long")
     }
 }
