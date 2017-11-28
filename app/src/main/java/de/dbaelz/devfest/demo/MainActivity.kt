@@ -6,6 +6,7 @@ import android.util.Log
 import de.dbaelz.devfest.demo.data.UserService
 import de.dbaelz.devfest.demo.data.Username
 import de.dbaelz.devfest.demo.data.hasPassed
+import de.dbaelz.devfest.demo.data.measureTimeInMillis
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,9 +15,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val dbaelz: Username = "dbaelz"
-        val user = UserService.getUser(username = dbaelz)
-        Log.d("DevFest", "User ${user.username} has ${user.points} points and " +
-                if (user.hasPassed()) "passed" else "failed")
+
+        val duration = measureTimeInMillis {
+            val user = UserService.getUser(username = dbaelz)
+            Log.d("DevFest", "User ${user.username} has ${user.points} points and " +
+                    if (user.hasPassed()) "passed" else "failed")
+        }
+        Log.d("DevFest", "Duration is $duration ms")
 
         val (username, _, _, latlong) = UserService.getUser(username = dbaelz)
         val (lat, long) = latlong
