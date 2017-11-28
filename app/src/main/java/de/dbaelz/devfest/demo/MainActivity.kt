@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import de.dbaelz.devfest.demo.data.UserService
 import de.dbaelz.devfest.demo.data.Username
+import de.dbaelz.devfest.demo.data.hasPassed
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +15,8 @@ class MainActivity : AppCompatActivity() {
 
         val dbaelz: Username = "dbaelz"
         val user = UserService.getUser(username = dbaelz)
-        Log.d("DevFest", "User ${user.username} has ${user.points} points")
+        Log.d("DevFest", "User ${user.username} has ${user.points} points and " +
+                if (user.hasPassed()) "passed" else "failed")
 
         val (username, _, _, latlong) = UserService.getUser(username = dbaelz)
         val (lat, long) = latlong
