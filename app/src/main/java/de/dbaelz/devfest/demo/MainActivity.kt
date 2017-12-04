@@ -3,16 +3,16 @@ package de.dbaelz.devfest.demo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.TypedValue
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.debug
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.linearLayout
+import org.jetbrains.anko.textView
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
     private var lastText: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /*
         setContentView(R.layout.activity_main)
 
         hello.apply {
@@ -26,6 +26,15 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
         lastText?.let {
             debug { it }
+        }
+        */
+
+        linearLayout {
+            textView {
+                text = "Hello DevFest Karlsruhe"
+                setTextColor(resources.getColor(R.color.colorAccent))
+                setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
+            }
         }
     }
 }
