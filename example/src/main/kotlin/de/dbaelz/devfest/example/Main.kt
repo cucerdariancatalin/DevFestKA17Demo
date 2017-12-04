@@ -9,6 +9,16 @@ fun main(args: Array<String>) {
         println("$key -> $value")
     }
     map.mapValues { (key, value) -> println("$key -> $value") }
+
+
+    
+    val application = application {
+        config {
+            id = "de.dbaelz.devfest"
+            name = "DevFest Demo"
+        }
+    }
+    println(application.toString())
 }
 
 fun checkForResponse(response: Response): String {
