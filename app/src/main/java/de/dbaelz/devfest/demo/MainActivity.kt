@@ -3,15 +3,20 @@ package de.dbaelz.devfest.demo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.TypedValue
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.linearLayout
-import org.jetbrains.anko.textView
+import android.view.View
+import android.widget.LinearLayout
+import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
     private var lastText: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Examples:
+        // - Kotlin Android Extension
+        // - apply/also/let function blocks and
+        // - Anko Commons: Useful extension functions
         /*
         setContentView(R.layout.activity_main)
 
@@ -29,9 +34,13 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         }
         */
 
+
+        // Example: Anko Layouts DSL
         linearLayout {
+            orientation = LinearLayout.VERTICAL
             textView {
                 text = "Hello DevFest Karlsruhe"
+                textAlignment = View.TEXT_ALIGNMENT_CENTER
                 setTextColor(resources.getColor(R.color.colorAccent))
                 setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
             }
